@@ -15,6 +15,7 @@
     <modules>
         <module>shiro-simple</module>
         <module>spring-session-simple</module>
+        <module>shiro-simple2</module>
     </modules>
 
 
