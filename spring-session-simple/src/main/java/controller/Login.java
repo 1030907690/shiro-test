@@ -1,5 +1,9 @@
 package controller;
 
+import javax.servlet.ServletRequest;
+import javax.servlet.ServletResponse;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -31,7 +35,22 @@ public class Login {
 		}else
 			return "fail";
 	}
-	
+
+	@RequestMapping("/loginvalidate2")
+	public void loginvalidate2(ServletRequest req, ServletResponse res){
+
+		try {
+			HttpServletRequest request = (HttpServletRequest) req;
+			HttpServletResponse response = (HttpServletResponse) res;
+			request.getSession().setAttribute("testKey", "742981086@qq.com");
+			request.getSession().setMaxInactiveInterval(10 * 1000);
+			response.sendRedirect(request.getContextPath() + "/session");
+		} catch (Exception e) {
+
+		}
+	}
+
+
 	@RequestMapping("/login")
 	public String login(){
 		return "login";

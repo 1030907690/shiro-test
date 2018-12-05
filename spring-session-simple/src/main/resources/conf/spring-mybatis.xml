@@ -46,5 +46,6 @@
         p:dataSource-ref="dataSource"/>
         
 <tx:annotation-driven transaction-manager="transactionManager"/>
-        
+		<!-- spring session -->
+        <import resource="spring-session.xml"></import>
 </beans>
